@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet & Greet - Proyecto Yuca / Yukawaii Fest</title>
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -21,643 +14,915 @@
                     colors: {
                         yuca: {
                             pink: '#FF85A2',
-                            pinkDark: '#E05D7C',
-                            pinkLight: '#FFD6E0',
                             pinkSoft: '#FFF0F3',
-                            blue: '#5C9EFF',
-                            blueDark: '#3878E0',
-                            blueLight: '#E8F1FF',
-                            yellow: '#FFDF6D',
-                            yellowLight: '#FFF8DC',
-                            coral: '#FF6B6B',
+                            pinkLight: '#FFD6E0',
+                            blue: '#70D6FF',
+                            blueSoft: '#E8F8FF',
+                            yellow: '#FFD166',
+                            coral: '#FF6B8B',
                             creamBg: '#FFFDF9',
-                            creamCard: '#FFFFFF',
-                            darkBg: '#0f111a',
-                            darkHeader: '#141824',
-                            darkCard: '#1C2234',
-                            darkBorder: '#2E3650'
+                            cardBg: '#FFFFFF',
+                            darkBg: '#12181B',
+                            darkCard: '#1E272C',
+                            darkHeader: '#1A232A'
                         }
                     },
                     fontFamily: {
                         fredoka: ['Fredoka', 'sans-serif'],
-                        sans: ['Outfit', 'sans-serif']
+                        outfit: ['Outfit', 'sans-serif']
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             font-family: 'Outfit', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         .font-fredoka {
-            font-family: 'Fredoka', cursive;
+            font-family: 'Fredoka', sans-serif;
         }
         .kawaii-gradient-text {
-            background: linear-gradient(135deg, #FF85A2 0%, #FFB347 50%, #5C9EFF 100%);
+            background: linear-gradient(135deg, #FF6B8B 0%, #3B82F6 100%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .glow-pink {
-            box-shadow: 0 0 25px rgba(255, 133, 162, 0.3);
-        }
-        .glow-blue {
-            box-shadow: 0 0 25px rgba(92, 158, 255, 0.3);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #FF85A2;
-            border-radius: 4px;
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printable-ticket, #printable-ticket * {
+                visibility: visible;
+            }
+            #printable-ticket {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body class="min-h-full bg-yuca-creamBg text-gray-800 dark:bg-yuca-darkBg dark:text-gray-100 flex flex-col justify-between selection:bg-yuca-pink selection:text-white">
 
     <!-- Header / Navbar -->
-    <header class="sticky top-0 z-40 bg-white/90 dark:bg-yuca-darkHeader/90 backdrop-filter backdrop-blur-md border-b border-yuca-pink/20 dark:border-yuca-darkBorder transition-colors duration-300">
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-yuca-darkHeader/90 backdrop-blur-md border-b border-yuca-pinkLight/40 dark:border-gray-800 transition-colors">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- Brand Logo -->
+            <!-- Brand / Logo -->
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-yuca-pink to-yuca-yellow p-0.5 flex items-center justify-center shadow-md">
-                    <div class="w-full h-full bg-white dark:bg-yuca-darkHeader rounded-[14px] flex items-center justify-center">
-                        <i class="fa-solid fa-star text-yuca-pink dark:text-yuca-yellow text-xl"></i>
-                    </div>
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-yuca-pink to-yuca-yellow flex items-center justify-center text-white text-2xl font-bold font-fredoka shadow-md transform -rotate-3 hover:rotate-0 transition-transform">
+                    Y
                 </div>
                 <div>
-                    <span class="text-xs uppercase tracking-widest font-bold text-yuca-pink dark:text-yuca-pink">PROYECTO YUCA</span>
-                    <h1 class="text-xl font-fredoka font-bold tracking-wide text-gray-800 dark:text-white">Yukawaii Fest</h1>
+                    <span class="text-xs font-bold tracking-widest text-yuca-coral uppercase block">Proyecto Yuca</span>
+                    <h1 class="text-xl font-fredoka font-bold kawaii-gradient-text leading-tight">Yukawaii Fest</h1>
                 </div>
             </div>
 
-            <!-- Right Nav Controls: Counter & Theme Toggle -->
-            <div class="flex items-center gap-3">
-                <!-- Live Slots Counter Badge -->
-                <div class="flex items-center gap-2 bg-yuca-pinkSoft dark:bg-yuca-darkCard border border-yuca-pink/30 dark:border-yuca-darkBorder px-3 sm:px-4 py-2 rounded-full shadow-sm">
+            <!-- Right Controls -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Check Ticket Button -->
+                <button onclick="openCheckTicketModal()" class="px-3 py-1.5 rounded-full bg-yuca-blueSoft hover:bg-yuca-blue/20 dark:bg-yuca-darkCard border border-yuca-blue/40 text-yuca-blue text-xs font-bold font-fredoka flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span class="hidden sm:inline">Consultar Mi Ticket</span>
+                </button>
+
+                <!-- Live Slots Badge -->
+                <div class="flex items-center gap-2 bg-yuca-pinkSoft dark:bg-yuca-darkCard border border-yuca-pink/30 px-3 py-1.5 rounded-full shadow-sm">
                     <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yuca-coral opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-yuca-coral"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yuca-coral opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-yuca-coral"></span>
                     </span>
-                    <span class="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">Cupos: <strong id="slots-count" class="text-yuca-pinkDark dark:text-yuca-yellow font-bold text-sm sm:text-base">14</strong>/50</span>
+                    <span class="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">Cupos: <strong id="slots-count" class="text-yuca-coral dark:text-yuca-pink font-bold">14</strong>/50</span>
                 </div>
 
                 <!-- Dark / Light Theme Toggle Button -->
-                <button id="theme-toggle" onclick="toggleTheme()" type="button" aria-label="Cambiar tema" 
-                    class="p-2.5 rounded-full bg-yuca-pinkSoft hover:bg-yuca-pinkLight dark:bg-yuca-darkCard dark:hover:bg-yuca-darkBorder border border-yuca-pink/30 dark:border-yuca-darkBorder text-yuca-pinkDark dark:text-yuca-yellow transition-all duration-300 shadow-sm flex items-center justify-center">
+                <button id="theme-toggle" onclick="toggleTheme()" type="button" aria-label="Cambiar tema"
+                    class="p-2.5 rounded-full bg-yuca-pinkSoft hover:bg-yuca-pinkLight dark:bg-yuca-darkCard dark:hover:bg-gray-700 text-yuca-coral dark:text-yuca-yellow transition-all duration-300">
                     <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="relative overflow-hidden py-10 lg:py-14 bg-gradient-to-b from-yuca-pinkSoft/60 via-yuca-creamBg to-yuca-creamBg dark:from-yuca-darkHeader dark:via-yuca-darkBg dark:to-yuca-darkBg transition-colors duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
-                <!-- Left: Guest Card Container -->
-                <div class="lg:col-span-5 flex flex-col items-center">
-                    <div class="relative group">
-                        <!-- Glow effect -->
-                        <div class="absolute -inset-1.5 bg-gradient-to-r from-yuca-pink via-yuca-yellow to-yuca-blue rounded-3xl blur opacity-60 group-hover:opacity-100 transition duration-500"></div>
-                        
-                        <!-- Guest Image Card -->
-                        <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-2xl bg-white dark:bg-yuca-darkHeader border-2 border-yuca-pink/40 overflow-hidden shadow-2xl flex flex-col">
-                            <img src="https://images2.imgbox.com/39/38/B4i3X7bS_o.png" 
-                                 alt="Invitado Especial Meet & Greet" 
-                                 class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                                 onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF0F3/FF85A2?text=Invitado+Especial';">
-                            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-                            <div class="absolute bottom-4 left-4 right-4 text-center">
-                                <span class="bg-yuca-pink text-white text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Invitado Especial</span>
-                                <h3 class="text-xl font-fredoka text-white mt-1 drop-shadow">Meet & Greet Exclusivo</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right: Event Description -->
-                <div class="lg:col-span-7 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-yuca-pink/15 border border-yuca-pink/40 text-yuca-pinkDark dark:text-yuca-pink text-xs font-bold mb-4 shadow-sm">
-                        <i class="fa-solid fa-sparkles"></i> Prerregistro Oficial - Yukawaii Fest
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-fredoka font-bold text-gray-900 dark:text-white leading-tight">
-                        ¡Asegura tu lugar en el <br class="hidden sm:inline"><span class="kawaii-gradient-text">Meet & Greet Kawaii</span>!
-                    </h2>
-                    <p class="mt-4 text-gray-600 dark:text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-                        Vive una experiencia única compartiendo un momento inolvidable con nuestro invitado especial. Selecciona el tipo de pase de tu preferencia, realiza tu prerregistro y obtén tu boleto con código QR.
-                    </p>
-
-                    <!-- Feature pills -->
-                    <div class="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start text-sm">
-                        <div class="flex items-center gap-2 bg-white dark:bg-yuca-darkCard border border-yuca-pink/20 dark:border-yuca-darkBorder px-4 py-2 rounded-xl shadow-sm text-gray-700 dark:text-gray-300">
-                            <i class="fa-solid fa-calendar-day text-yuca-pink font-bold"></i>
-                            <span>Yukawaii Fest</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-white dark:bg-yuca-darkCard border border-yuca-pink/20 dark:border-yuca-darkBorder px-4 py-2 rounded-xl shadow-sm text-gray-700 dark:text-gray-300">
-                            <i class="fa-solid fa-clock text-yuca-yellow"></i>
-                            <span>Cupos Limitados (50)</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-white dark:bg-yuca-darkCard border border-yuca-pink/20 dark:border-yuca-darkBorder px-4 py-2 rounded-xl shadow-sm text-gray-700 dark:text-gray-300">
-                            <i class="fa-solid fa-location-dot text-yuca-blue"></i>
-                            <span>Salón de Eventos</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <!-- Main Content -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         
-        <form id="registration-form" onsubmit="handleRegistration(event)">
+        <!-- Hero Section -->
+        <section class="text-center mb-12 sm:mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yuca-pinkSoft dark:bg-yuca-darkCard border border-yuca-pink/30 text-yuca-coral dark:text-yuca-pink text-xs sm:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-star text-yuca-yellow animate-pulse"></i>
+                <span>Prerregistro Oficial - Yukawaii Fest</span>
+                <i class="fa-solid fa-star text-yuca-yellow animate-pulse"></i>
+            </div>
             
-            <!-- Step 1: Select Pass Section -->
-            <div class="mb-12">
-                <div class="text-center mb-8">
-                    <span class="text-yuca-blueDark dark:text-yuca-blue font-bold text-xs sm:text-sm tracking-widest uppercase">Paso 1</span>
-                    <h3 class="text-2xl sm:text-3xl font-fredoka font-bold text-gray-900 dark:text-white">Selecciona tu Tipo de Pase</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Elige la modalidad que deseas para tu experiencia Meet & Greet</p>
+            <h2 class="text-3xl sm:text-5xl lg:text-6xl font-fredoka font-extrabold tracking-tight text-gray-900 dark:text-white mb-4 leading-tight">
+                ¡Asegura tu lugar en el <br class="hidden sm:inline">
+                <span class="kawaii-gradient-text">Meet & Greet Kawaii</span>!
+            </h2>
+            
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal leading-relaxed">
+                Vive una experiencia única compartiendo un momento inolvidable con nuestro invitado especial. Selecciona el tipo de pase de tu preferencia, realiza tu prerregistro y obtén tu boleto con código QR.
+            </p>
+
+            <div class="mt-6 flex flex-wrap justify-center items-center gap-3 sm:gap-6 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                <div class="flex items-center gap-2 bg-white dark:bg-yuca-darkCard px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <i class="fa-regular fa-calendar-check text-yuca-pink"></i>
+                    <span>Yukawaii Fest</span>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                    
-                    <!-- NORMAL PASS (50 Bs.) -->
-                    <label class="cursor-pointer group relative">
-                        <input type="radio" name="pass_type" value="normal" class="peer hidden" checked onchange="updatePassSelection()">
-                        <div class="h-full rounded-2xl bg-white dark:bg-yuca-darkCard border-2 border-gray-200 dark:border-yuca-darkBorder peer-checked:border-yuca-blue peer-checked:bg-yuca-blueLight/30 dark:peer-checked:bg-yuca-darkCard/90 peer-checked:glow-blue transition-all duration-300 p-6 flex flex-col justify-between hover:border-yuca-blue/60 shadow-md">
-                            
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <div>
-                                        <span class="bg-yuca-blue/20 text-yuca-blueDark dark:text-yuca-blue text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase">Pase Regular</span>
-                                        <h4 class="text-2xl font-fredoka font-bold text-gray-900 dark:text-white mt-2">Pase Normal</h4>
-                                    </div>
-                                    <div class="text-right">
-                                        <span class="text-3xl font-fredoka font-bold text-yuca-blueDark dark:text-yuca-blue">50</span>
-                                        <span class="text-sm font-semibold text-gray-500 dark:text-gray-400">Bs.</span>
-                                    </div>
-                                </div>
-                                <p class="text-gray-600 dark:text-gray-300 text-sm mb-6">Acceso directo a la sesión Meet & Greet estándar para saludar a tu artista favorito.</p>
-                                
-                                <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-circle-check text-yuca-blueDark dark:text-yuca-blue"></i>
-                                        <span>Entrada al área de Meet & Greet</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-circle-check text-yuca-blueDark dark:text-yuca-blue"></i>
-                                        <span>Fotografía rápida de recuerdo</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-circle-check text-yuca-blueDark dark:text-yuca-blue"></i>
-                                        <span>Firma en artículo personal</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="mt-8 pt-4 border-t border-gray-100 dark:border-yuca-darkBorder/60 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-gray-400 peer-checked:text-yuca-blueDark dark:peer-checked:text-yuca-blue">
-                                <span>Pase Seleccionado</span>
-                                <div class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-yuca-darkBorder flex items-center justify-center group-hover:border-yuca-blue transition-colors">
-                                    <div class="w-3 h-3 rounded-full bg-yuca-blue opacity-0 transition-opacity duration-200"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-
-                    <!-- VIP PASS (80 Bs.) -->
-                    <label class="cursor-pointer group relative">
-                        <div class="absolute -top-3 -right-2 z-10 bg-gradient-to-r from-yuca-pink to-yuca-yellow text-gray-900 text-xs font-bold font-fredoka px-3.5 py-1 rounded-full shadow-lg uppercase">
-                            ¡Más Completo! ⭐
-                        </div>
-                        <input type="radio" name="pass_type" value="vip" class="peer hidden" onchange="updatePassSelection()">
-                        <div class="h-full rounded-2xl bg-white dark:bg-yuca-darkCard border-2 border-gray-200 dark:border-yuca-darkBorder peer-checked:border-yuca-pink peer-checked:bg-yuca-pinkSoft/60 dark:peer-checked:bg-yuca-darkCard/90 peer-checked:glow-pink transition-all duration-300 p-6 flex flex-col justify-between hover:border-yuca-pink/60 shadow-md">
-                            
-                            <div>
-                                <div class="flex justify-between items-start mb-4">
-                                    <div>
-                                        <span class="bg-yuca-pink/20 text-yuca-pinkDark dark:text-yuca-pink text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase">VIP / Especial</span>
-                                        <h4 class="text-2xl font-fredoka font-bold text-gray-900 dark:text-white mt-2">Pase VIP Especial</h4>
-                                    </div>
-                                    <div class="text-right">
-                                        <span class="text-3xl font-fredoka font-bold text-yuca-pinkDark dark:text-yuca-pink">80</span>
-                                        <span class="text-sm font-semibold text-gray-500 dark:text-gray-400">Bs.</span>
-                                    </div>
-                                </div>
-                                <p class="text-gray-600 dark:text-gray-300 text-sm mb-6">La experiencia kawaii completa con souvenirs exclusivos e interacción personalizada.</p>
-                                
-                                <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-star text-yuca-yellow"></i>
-                                        <span class="font-semibold text-gray-900 dark:text-white">Todo lo incluido en el Pase Normal</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-gift text-yuca-pink"></i>
-                                        <span><strong>Souvenir Especial</strong> Yukawaii Fest</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-microphone-lines text-yuca-pink"></i>
-                                        <span><strong>Grabación de Audio</strong> personalizada</span>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <i class="fa-solid fa-file-signature text-yuca-pink"></i>
-                                        <span><strong>Firma / Autógrafo Exclusivo</strong> con dedicatoria</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="mt-8 pt-4 border-t border-gray-100 dark:border-yuca-darkBorder/60 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-gray-400 peer-checked:text-yuca-pinkDark dark:peer-checked:text-yuca-pink">
-                                <span>Pase Seleccionado</span>
-                                <div class="w-6 h-6 rounded-full border-2 border-gray-300 dark:border-yuca-darkBorder flex items-center justify-center group-hover:border-yuca-pink transition-colors">
-                                    <div class="w-3 h-3 rounded-full bg-yuca-pink opacity-0 transition-opacity duration-200"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-
+                <div class="flex items-center gap-2 bg-white dark:bg-yuca-darkCard px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <i class="fa-regular fa-clock text-yuca-yellow"></i>
+                    <span>Cupos Limitados (50)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white dark:bg-yuca-darkCard px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-800 shadow-sm">
+                    <i class="fa-solid fa-location-dot text-yuca-blue"></i>
+                    <span>Salón de Eventos</span>
                 </div>
             </div>
+        </section>
 
-            <!-- Step 2: Form Inputs -->
-            <div class="max-w-3xl mx-auto bg-white dark:bg-yuca-darkCard/90 border border-yuca-pink/20 dark:border-yuca-darkBorder rounded-3xl p-6 sm:p-10 shadow-xl transition-colors duration-300">
-                <div class="text-center mb-8">
-                    <span class="text-yuca-pinkDark dark:text-yuca-pink font-bold text-xs sm:text-sm tracking-widest uppercase">Paso 2</span>
-                    <h3 class="text-2xl sm:text-3xl font-fredoka font-bold text-gray-900 dark:text-white">Datos de Registro</h3>
-                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Completa tus datos para reservar tu boleto con QR</p>
-                </div>
-
-                <div class="space-y-6">
-                    <!-- Grid 2 Col Name & Nickname -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">
-                                Nombre Completo <span class="text-yuca-pink">*</span>
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-                                    <i class="fa-regular fa-user"></i>
-                                </span>
-                                <input type="text" id="full-name" required placeholder="Ej. Camila Morales" 
-                                    class="w-full bg-yuca-creamBg dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder rounded-xl py-3 pl-10 pr-4 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-yuca-pink focus:ring-1 focus:ring-yuca-pink transition-colors">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">
-                                Nombre Artístico / Apodo
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-                                    <i class="fa-solid fa-hat-wizard"></i>
-                                </span>
-                                <input type="text" id="nickname" placeholder="Ej. CamiChan" 
-                                    class="w-full bg-yuca-creamBg dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder rounded-xl py-3 pl-10 pr-4 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-yuca-pink focus:ring-1 focus:ring-yuca-pink transition-colors">
-                            </div>
+        <!-- Guest Showcase & Pass Selection -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
+            
+            <!-- Guest Card -->
+            <div class="lg:col-span-5 flex flex-col justify-between bg-white dark:bg-yuca-darkCard rounded-3xl p-6 sm:p-8 border border-yuca-pinkLight/50 dark:border-gray-800 shadow-lg relative overflow-hidden group">
+                <div>
+                    <div class="relative w-full h-80 rounded-2xl bg-yuca-pinkSoft dark:bg-gray-800 overflow-hidden mb-6 shadow-inner border border-yuca-pink/20">
+                        <img src="glam.png" 
+                             alt="Glam - Metal Family" 
+                             class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFF0F3/FF85A2?text=Glam+Metal+Family';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 right-4 text-center">
+                            <span class="bg-yuca-pink text-white text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase tracking-wider shadow-md">Invitado Especial</span>
+                            <h3 class="text-2xl font-fredoka text-white mt-1 drop-shadow">Glam - Metal Family</h3>
                         </div>
                     </div>
 
-                    <!-- Grid 2 Col Email & Phone -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">
-                                Correo Electrónico <span class="text-yuca-pink">*</span>
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-                                    <i class="fa-regular fa-envelope"></i>
-                                </span>
-                                <input type="email" id="email" required placeholder="tu-correo@ejemplo.com" 
-                                    class="w-full bg-yuca-creamBg dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder rounded-xl py-3 pl-10 pr-4 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-yuca-pink focus:ring-1 focus:ring-yuca-pink transition-colors">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-2">
-                                Teléfono / WhatsApp <span class="text-yuca-pink">*</span>
-                            </label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
-                                    <i class="fa-brands fa-whatsapp text-emerald-500"></i>
-                                </span>
-                                <input type="tel" id="phone" required placeholder="Ej. 76543210" 
-                                    class="w-full bg-yuca-creamBg dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder rounded-xl py-3 pl-10 pr-4 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-yuca-pink focus:ring-1 focus:ring-yuca-pink transition-colors">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Audio/Signature Greeting Input (VIP Only) -->
-                    <div id="audio-request-container" class="transition-all duration-300 hidden">
-                        <label class="block text-xs font-bold uppercase tracking-wider text-yuca-pinkDark dark:text-yuca-yellow mb-2">
-                            <i class="fa-solid fa-microphone-lines mr-1"></i> Dedicatoria para Audio y Autógrafo
-                        </label>
-                        <textarea id="audio-request" rows="2" placeholder="Escribe el nombre o frase para tu dedicatoria en la firma y audio..." 
-                            class="w-full bg-yuca-creamBg dark:bg-yuca-darkHeader border border-yuca-pink/30 dark:border-yuca-yellow/40 rounded-xl p-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-yuca-pink text-sm"></textarea>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Incluido únicamente en el Pase VIP de 80 Bs.</p>
-                    </div>
-
-                    <!-- Payment Option Selection -->
-                    <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 dark:text-gray-300 mb-3">
-                            Método de Pago Preferido <span class="text-yuca-pink">*</span>
-                        </label>
-                        <div class="grid grid-cols-2 gap-4">
-                            <label class="cursor-pointer">
-                                <input type="radio" name="payment_method" value="Pago QR Simple" checked class="peer hidden">
-                                <div class="bg-yuca-creamBg dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder peer-checked:border-yuca-pink peer-checked:bg-yuca-pinkSoft dark:peer-checked:bg-yuca-pink/10 rounded-xl p-3.5 text-center flex items-center justify-center gap-2 transition-colors">
-                                    <i class="fa-solid fa-qrcode text-yuca-pink text-lg"></i>
-                                    <span class="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200">Pago QR Simple</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer">
-                                <input type="radio" name="payment_method" value="Transferencia" class="peer hidden">
-                                <div class="bg-yuca-creamBg dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder peer-checked:border-yuca-pink peer-checked:bg-yuca-pinkSoft dark:peer-checked:bg-yuca-pink/10 rounded-xl p-3.5 text-center flex items-center justify-center gap-2 transition-colors">
-                                    <i class="fa-solid fa-building-columns text-yuca-blue text-lg"></i>
-                                    <span class="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200">Transferencia</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Price Summary Box -->
-                    <div class="bg-yuca-pinkSoft/60 dark:bg-yuca-darkHeader border border-yuca-pink/30 dark:border-yuca-darkBorder rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
-                        <div>
-                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Resumen de Reserva</span>
-                            <div class="text-lg font-fredoka font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <span id="summary-pass-name">Pase Normal</span>
-                                <span class="text-xs bg-yuca-blue/20 text-yuca-blueDark dark:text-yuca-blue px-2.5 py-0.5 rounded-md font-sans font-bold" id="summary-badge">50 Bs.</span>
-                            </div>
-                        </div>
-                        <div class="text-center sm:text-right">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Total a Pagar:</span>
-                            <div class="text-3xl font-fredoka font-bold text-yuca-pinkDark dark:text-yuca-yellow" id="summary-total-price">
-                                50.00 <span class="text-sm font-sans font-semibold">Bs.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="w-full py-4 px-8 rounded-2xl bg-gradient-to-r from-yuca-pink via-yuca-pinkDark to-yuca-pink hover:opacity-95 transition-all duration-300 font-fredoka font-bold text-lg text-white shadow-xl hover:shadow-yuca-pink/30 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-ticket"></i>
-                        <span>Generar Mi Prerregistro</span>
-                    </button>
-
-                    <p class="text-center text-xs text-gray-500 dark:text-gray-400">
-                        <i class="fa-solid fa-shield-halved text-yuca-blue mr-1"></i> Tus datos quedan reservados. Podrás confirmar con tu pago vía QR o transferencia.
+                    <h3 class="text-xl font-fredoka font-bold text-gray-900 dark:text-white mb-2">
+                        Experiencia Exclusiva Meet & Greet
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Acceso garantizado al espacio exclusivo de interacción. Podrás conversar, tomarte fotografías profesionales y solicitar autógrafos o saludos personalizados según tu tipo de pase.
                     </p>
+                </div>
 
+                <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-yuca-pink"></i> Registro Seguro</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-yuca-yellow"></i> Confirmación Manual</span>
                 </div>
             </div>
 
-        </form>
+            <!-- Pass Cards -->
+            <div class="lg:col-span-7 flex flex-col justify-between gap-6">
+                <div>
+                    <div class="mb-4">
+                        <span class="text-xs font-bold uppercase tracking-wider text-yuca-coral font-fredoka">Paso 1</span>
+                        <h3 class="text-2xl font-fredoka font-bold text-gray-900 dark:text-white">Selecciona tu Tipo de Pase</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Elige la modalidad que deseas para tu experiencia Meet & Greet</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        
+                        <!-- Option Normal -->
+                        <div id="card-normal" onclick="selectPass('normal')" 
+                             class="cursor-pointer bg-white dark:bg-yuca-darkCard rounded-2xl p-6 border-2 border-yuca-pink/30 hover:border-yuca-pink transition-all duration-300 relative shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div id="badge-normal" class="hidden absolute -top-3 right-4 bg-yuca-pink text-white text-[10px] font-bold font-fredoka px-2.5 py-0.5 rounded-full shadow">SELECCIONADO</div>
+                            <div>
+                                <div class="w-10 h-10 rounded-xl bg-yuca-pinkSoft dark:bg-yuca-pink/20 text-yuca-pink flex items-center justify-center text-lg font-bold mb-3">
+                                    <i class="fa-solid fa-ticket"></i>
+                                </div>
+                                <h4 class="text-lg font-fredoka font-bold text-gray-900 dark:text-white">Pase Normal</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Acceso básico al evento</p>
+                                
+                                <div class="mt-4 mb-4">
+                                    <span class="text-3xl font-fredoka font-extrabold text-gray-900 dark:text-white">50</span>
+                                    <span class="text-sm font-bold text-yuca-coral">Bs.</span>
+                                </div>
+
+                                <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-check text-yuca-pink mt-0.5"></i>
+                                        <span>Entrada prioritaria al Meet & Greet</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-check text-yuca-pink mt-0.5"></i>
+                                        <span>Fotografía con el invitado</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-check text-yuca-pink mt-0.5"></i>
+                                        <span>Firma de autógrafo (1 ítem)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="button" class="mt-6 w-full py-2 px-4 rounded-xl text-xs font-bold font-fredoka border border-yuca-pink text-yuca-pink hover:bg-yuca-pink hover:text-white transition-colors">
+                                Seleccionar Pase Normal
+                            </button>
+                        </div>
+
+                        <!-- Option VIP -->
+                        <div id="card-vip" onclick="selectPass('vip')" 
+                             class="cursor-pointer bg-white dark:bg-yuca-darkCard rounded-2xl p-6 border-2 border-yuca-blue/30 hover:border-yuca-blue transition-all duration-300 relative shadow-sm hover:shadow-md flex flex-col justify-between">
+                            <div class="absolute -top-3 left-4 bg-gradient-to-r from-yuca-pink to-yuca-yellow text-white text-[10px] font-bold font-fredoka px-2.5 py-0.5 rounded-full shadow uppercase">MÁS COMPLETO ✨</div>
+                            <div id="badge-vip" class="hidden absolute -top-3 right-4 bg-yuca-blue text-white text-[10px] font-bold font-fredoka px-2.5 py-0.5 rounded-full shadow">SELECCIONADO</div>
+                            <div>
+                                <div class="w-10 h-10 rounded-xl bg-yuca-blueSoft dark:bg-yuca-blue/20 text-yuca-blue flex items-center justify-center text-lg font-bold mb-3">
+                                    <i class="fa-solid fa-crown"></i>
+                                </div>
+                                <h4 class="text-lg font-fredoka font-bold text-gray-900 dark:text-white">Pase VIP Especial</h4>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Experiencia premium completa</p>
+                                
+                                <div class="mt-4 mb-4">
+                                    <span class="text-3xl font-fredoka font-extrabold text-gray-900 dark:text-white">80</span>
+                                    <span class="text-sm font-bold text-yuca-blue">Bs.</span>
+                                </div>
+
+                                <ul class="space-y-2 text-xs text-gray-600 dark:text-gray-300">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-check text-yuca-blue mt-0.5"></i>
+                                        <span><strong>Todo lo del Pase Normal</strong></span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-star text-yuca-yellow mt-0.5"></i>
+                                        <span><strong>Souvenir Especial</strong> del evento</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-microphone text-yuca-blue mt-0.5"></i>
+                                        <span><strong>Grabación de audio</strong> personalizada</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-signature text-yuca-blue mt-0.5"></i>
+                                        <span><strong>Firma especial con dedicatoria</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="button" class="mt-6 w-full py-2 px-4 rounded-xl text-xs font-bold font-fredoka border border-yuca-blue text-yuca-blue hover:bg-yuca-blue hover:text-white transition-colors">
+                                Seleccionar Pase VIP
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="text-center pt-2">
+                    <a href="#form-section" class="inline-flex items-center gap-2 text-xs font-semibold text-gray-500 hover:text-yuca-coral transition-colors">
+                        <span>Continuar al formulario de datos</span>
+                        <i class="fa-solid fa-arrow-down animate-bounce"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Preregistration Form Section -->
+        <section id="form-section" class="max-w-3xl mx-auto bg-white dark:bg-yuca-darkCard rounded-3xl p-6 sm:p-10 border border-yuca-pinkLight/60 dark:border-gray-800 shadow-xl relative">
+            <div class="mb-8 text-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-yuca-coral font-fredoka">Paso 2</span>
+                <h3 class="text-2xl sm:text-3xl font-fredoka font-bold text-gray-900 dark:text-white mt-1">Formulario de Prerregistro</h3>
+                <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">Ingresa tus datos personales para solicitar tu reserva</p>
+            </div>
+
+            <form id="preregister-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                
+                <!-- Selected Pass Indicator -->
+                <div class="p-4 rounded-2xl bg-yuca-pinkSoft dark:bg-gray-800/80 border border-yuca-pink/30 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div id="form-pass-icon" class="w-10 h-10 rounded-xl bg-yuca-pink text-white flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <div>
+                            <span class="text-[11px] text-gray-500 dark:text-gray-400 block font-medium">Pase seleccionado:</span>
+                            <h5 id="form-pass-title" class="font-fredoka font-bold text-gray-900 dark:text-white text-base">Pase Normal (50 Bs.)</h5>
+                        </div>
+                    </div>
+                    <a href="#card-normal" class="text-xs text-yuca-coral hover:underline font-semibold">Cambiar</a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="fullname" class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
+                            Nombre Completo <span class="text-yuca-coral">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                                <i class="fa-regular fa-user"></i>
+                            </span>
+                            <input type="text" id="fullname" required placeholder="Ej: Camila Morales" 
+                                   class="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:border-yuca-pink focus:ring-2 focus:ring-yuca-pink/20 transition-all dark:text-white">
+                        </div>
+                    </div>
+
+                    <!-- Phone / Whatsapp -->
+                    <div>
+                        <label for="phone" class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
+                            Teléfono / WhatsApp <span class="text-yuca-coral">*</span>
+                        </label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </span>
+                            <input type="tel" id="phone" required placeholder="Ej: 71234567" 
+                                   class="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:border-yuca-pink focus:ring-2 focus:ring-yuca-pink/20 transition-all dark:text-white">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
+                        Correo Electrónico <span class="text-yuca-coral">*</span>
+                    </label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>
+                        <input type="email" id="email" required placeholder="tu@correo.com" 
+                               class="w-full pl-10 pr-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:border-yuca-pink focus:ring-2 focus:ring-yuca-pink/20 transition-all dark:text-white">
+                    </div>
+                </div>
+
+                <!-- Payment Method (QR) -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
+                        Método de Pago Disponibles <span class="text-yuca-coral">*</span>
+                    </label>
+                    
+                    <div class="p-4 rounded-xl border-2 border-yuca-pink bg-yuca-pinkSoft/30 dark:bg-yuca-pink/10 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-lg bg-yuca-pink text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-qrcode text-lg"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-sm font-bold text-gray-900 dark:text-white font-fredoka">Pago Simple QR</h5>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Escanear código QR e ingresar el monto correspondiente</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-circle-check text-yuca-pink text-lg"></i>
+                    </div>
+                </div>
+
+                <!-- Payment Type Options -->
+                <div class="p-4 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/40">
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-2">
+                        Modalidad de Pago para Reserva <span class="text-yuca-coral">*</span>
+                    </label>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 cursor-pointer hover:border-yuca-pink transition-colors">
+                            <input type="radio" name="payment_type" value="deposit" checked class="text-yuca-pink focus:ring-yuca-pink">
+                            <div>
+                                <span id="deposit-label" class="block text-xs font-bold text-gray-800 dark:text-white">Reserva Adelantada (10 Bs.)</span>
+                                <span class="text-[10px] text-gray-500">Saldo restante a cancelar el día del evento</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 cursor-pointer hover:border-yuca-pink transition-colors">
+                            <input type="radio" name="payment_type" value="full" class="text-yuca-pink focus:ring-yuca-pink">
+                            <div>
+                                <span id="full-label" class="block text-xs font-bold text-gray-800 dark:text-white">Pago Total Completo (50 Bs.)</span>
+                                <span class="text-[10px] text-gray-500">Cancelación del 100% por adelantado</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Refund Clause Checkbox -->
+                <div class="p-4 rounded-xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-xs text-amber-900 dark:text-amber-200 space-y-2">
+                    <div class="flex items-start gap-2.5">
+                        <input type="checkbox" id="terms-check" required class="mt-0.5 rounded text-yuca-coral focus:ring-yuca-coral">
+                        <label for="terms-check" class="leading-relaxed font-medium">
+                            Acepto las políticas de reserva: En caso de no alcanzarse los cupos mínimos requeridos para la realización del evento, se procederá a la devolución de la cuota de reserva adelantada (<strong id="clause-amount">10 Bs.</strong> para el Pase Normal y <strong>15 Bs.</strong> para el Pase VIP).
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" 
+                        class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-yuca-coral to-yuca-pink text-white font-fredoka font-bold text-lg shadow-lg hover:brightness-105 active:scale-[0.99] transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>Ver Código QR de Pago y Solicitar Reserva</span>
+                </button>
+
+            </form>
+        </section>
 
     </main>
 
-    <div id="ticket-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white dark:bg-yuca-darkCard border border-yuca-pink/30 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300" id="ticket-modal-content">
+    <!-- Modal: QR Payment & Order Confirmation -->
+    <div id="payment-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-yuca-darkCard rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-yuca-pink/30 relative my-8">
             
-            <button onclick="closeModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-gray-100 dark:bg-yuca-darkHeader text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white flex items-center justify-center border border-gray-200 dark:border-yuca-darkBorder transition-colors">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white p-2 text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-yuca-pinkSoft dark:bg-yuca-pink/20 text-yuca-pinkDark dark:text-yuca-pink rounded-2xl flex items-center justify-center mx-auto mb-3 border border-yuca-pink/40 animate-bounce">
-                    <i class="fa-solid fa-circle-check text-3xl"></i>
-                </div>
-                <h3 class="text-2xl font-fredoka font-bold text-gray-900 dark:text-white">¡Prerregistro Generado!</h3>
-                <p class="text-xs text-gray-500 dark:text-gray-300 mt-1">Guarda o toma una captura de pantalla de tu boleto digital.</p>
+                <span class="inline-block p-3 rounded-full bg-yuca-pinkSoft text-yuca-coral mb-2">
+                    <i class="fa-solid fa-qrcode text-2xl"></i>
+                </span>
+                <h3 class="text-2xl font-fredoka font-bold text-gray-900 dark:text-white">Escanea el QR para Pagar</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Realiza la transferencia por el monto exacto indicado a continuación</p>
             </div>
 
-            <!-- Ticket Card Box -->
-            <div class="bg-yuca-creamBg dark:bg-yuca-darkHeader border-2 border-dashed border-yuca-pink/40 rounded-2xl p-5 relative overflow-hidden">
-                <div class="flex justify-between items-start border-b border-gray-200 dark:border-yuca-darkBorder pb-3 mb-4">
-                    <div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-yuca-pinkDark dark:text-yuca-pink">PROYECTO YUCA - YUKAWAII FEST</span>
-                        <h4 class="text-lg font-fredoka font-bold text-gray-900 dark:text-white">Pase Meet & Greet</h4>
-                    </div>
-                    <div id="ticket-pass-badge" class="bg-yuca-blue text-white text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase">
-                        NORMAL
-                    </div>
+            <!-- Amount Box -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl mb-6 text-center border border-gray-200 dark:border-gray-700">
+                <span class="text-xs text-gray-500 uppercase tracking-wider font-semibold block">Monto Total a Cancelar Ahora</span>
+                <div class="text-4xl font-fredoka font-extrabold text-yuca-coral dark:text-yuca-pink my-1">
+                    <span id="modal-pay-amount">10</span> <span class="text-xl">Bs.</span>
                 </div>
-
-                <div class="space-y-2 text-sm mb-5">
-                    <div class="flex justify-between">
-                        <span class="text-gray-500 dark:text-gray-400">Titular:</span>
-                        <span class="font-semibold text-gray-900 dark:text-white text-right" id="ticket-name">-</span>
-                    </div>
-                    <div class="flex justify-between" id="ticket-nickname-row">
-                        <span class="text-gray-500 dark:text-gray-400">Seudónimo:</span>
-                        <span class="font-semibold text-yuca-pinkDark dark:text-yuca-yellow text-right" id="ticket-nickname">-</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-500 dark:text-gray-400">Teléfono:</span>
-                        <span class="font-semibold text-gray-900 dark:text-white text-right" id="ticket-phone">-</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <span class="text-gray-500 dark:text-gray-400">Método de Pago:</span>
-                        <span class="font-semibold text-yuca-blueDark dark:text-yuca-blue text-right" id="ticket-payment">-</span>
-                    </div>
-                    <div class="flex justify-between border-t border-gray-200 dark:border-yuca-darkBorder/60 pt-2">
-                        <span class="text-gray-700 dark:text-gray-300 font-bold">Monto Total:</span>
-                        <span class="font-bold text-yuca-pinkDark dark:text-yuca-yellow text-base text-right" id="ticket-price">0 Bs.</span>
-                    </div>
-                </div>
-
-                <!-- Simulated QR -->
-                <div class="bg-white dark:bg-yuca-darkCard rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4 justify-between border border-gray-200 dark:border-yuca-darkBorder">
-                    <div class="bg-white p-2 rounded-lg flex items-center justify-center border border-gray-100">
-                        <svg class="w-20 h-20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="100" height="100" fill="white"/>
-                            <rect x="10" y="10" width="25" height="25" fill="#141824"/>
-                            <rect x="15" y="15" width="15" height="15" fill="white"/>
-                            <rect x="18" y="18" width="9" height="9" fill="#141824"/>
-                            <rect x="65" y="10" width="25" height="25" fill="#141824"/>
-                            <rect x="70" y="15" width="15" height="15" fill="white"/>
-                            <rect x="73" y="18" width="9" height="9" fill="#141824"/>
-                            <rect x="10" y="65" width="25" height="25" fill="#141824"/>
-                            <rect x="15" y="70" width="15" height="15" fill="white"/>
-                            <rect x="18" y="73" width="9" height="9" fill="#141824"/>
-                            <rect x="42" y="12" width="10" height="10" fill="#141824"/>
-                            <rect x="42" y="30" width="8" height="8" fill="#141824"/>
-                            <rect x="12" y="42" width="12" height="8" fill="#141824"/>
-                            <rect x="30" y="42" width="15" height="15" fill="#141824"/>
-                            <rect x="52" y="45" width="10" height="10" fill="#141824"/>
-                            <rect x="70" y="42" width="18" height="8" fill="#141824"/>
-                            <rect x="42" y="65" width="12" height="12" fill="#141824"/>
-                            <rect x="60" y="65" width="10" height="20" fill="#141824"/>
-                            <rect x="75" y="75" width="15" height="10" fill="#141824"/>
-                        </svg>
-                    </div>
-
-                    <div class="text-center sm:text-left flex-1">
-                        <span class="text-[10px] text-gray-400 uppercase tracking-widest block">Código de Reserva</span>
-                        <span class="text-sm font-mono font-bold text-yuca-pinkDark dark:text-yuca-pink tracking-wider block" id="ticket-code">YUKA-0000-MG</span>
-                        <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1">Escanea o presenta este código para completar tu acreditación.</p>
-                    </div>
+                <div id="modal-pass-detail" class="text-xs text-gray-600 dark:text-gray-300 font-medium">
+                    Reserva Pase Normal (Monto Total Pase: 50 Bs.)
                 </div>
             </div>
 
-            <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <button onclick="copyTicketInfo()" class="flex-1 py-3 px-4 rounded-xl bg-gray-100 dark:bg-yuca-darkHeader border border-gray-200 dark:border-yuca-darkBorder text-gray-700 dark:text-gray-200 hover:bg-gray-200 font-semibold text-sm transition-colors flex items-center justify-center gap-2">
-                    <i class="fa-regular fa-copy"></i>
-                    <span>Copiar Datos</span>
-                </button>
-                <button onclick="closeModal()" class="flex-1 py-3 px-4 rounded-xl bg-yuca-pink text-white font-fredoka font-bold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
-                    <span>Aceptar</span>
-                    <i class="fa-solid fa-check"></i>
+            <!-- QR Code -->
+            <div class="flex flex-col items-center justify-center mb-6">
+                <div class="bg-white p-4 rounded-2xl shadow-inner border border-gray-200 text-center">
+                    <img id="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=PROYECTO_YUCA_MEET_GREET_62794421" 
+                         alt="Código QR de Pago" class="w-48 h-48 mx-auto rounded-lg">
+                    <span class="text-[11px] font-bold text-gray-600 mt-2 block font-mono">PROYECTO YUCA / YUKAWAII FEST</span>
+                </div>
+                <p class="text-[11px] text-gray-400 dark:text-gray-400 mt-3 text-center">
+                    <i class="fa-solid fa-info-circle text-yuca-blue"></i> Escanea con la app de tu banco (BCP, BNB, Banco Unión, Mercantil, etc.)
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <div class="p-3 bg-yuca-pinkSoft/50 dark:bg-gray-800 rounded-xl text-xs text-gray-700 dark:text-gray-300 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-yuca-yellow text-base"></i>
+                    <span>Envía el comprobante para que un administrador apruebe y active tu Ticket de Ingreso.</span>
+                </div>
+
+                <button onclick="confirmAndRedirectWhatsApp()" 
+                        class="w-full py-3.5 px-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-fredoka font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Enviar Comprobante a WhatsApp (+591 62794421)</span>
                 </button>
             </div>
 
         </div>
     </div>
 
+    <!-- Modal: Search/Check Ticket -->
+    <div id="check-ticket-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-yuca-darkCard rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-yuca-blue/30 relative">
+            
+            <button onclick="closeCheckTicketModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 mx-auto rounded-2xl bg-yuca-blueSoft text-yuca-blue flex items-center justify-center text-2xl font-bold mb-3">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <h3 class="text-xl font-fredoka font-bold text-gray-900 dark:text-white">Consultar Mi Ticket</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Ingresa tu código de reserva o número de teléfono</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <input type="text" id="search-ticket-input" placeholder="Ej: YUK-123456 o 71234567" 
+                           class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:border-yuca-blue dark:text-white">
+                </div>
+
+                <button onclick="searchUserTicket()" class="w-full py-3 rounded-xl bg-yuca-blue hover:brightness-105 text-white font-fredoka font-bold text-sm shadow transition-colors">
+                    Buscar Estado de Reserva
+                </button>
+            </div>
+
+            <!-- Result Box -->
+            <div id="ticket-search-result" class="mt-6 hidden"></div>
+        </div>
+    </div>
+
+    <!-- Modal: Display Ticket Official -->
+    <div id="ticket-view-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-yuca-darkCard rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-yuca-pink/40 relative my-8">
+            
+            <button onclick="closeTicketViewModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Printable Ticket Area -->
+            <div id="printable-ticket" class="bg-gradient-to-b from-yuca-pinkSoft to-white dark:from-yuca-darkCard dark:to-gray-900 p-6 rounded-2xl border-2 border-dashed border-yuca-pink relative overflow-hidden text-center">
+                
+                <div class="absolute -top-6 -right-6 w-20 h-20 bg-yuca-pink/20 rounded-full blur-xl"></div>
+
+                <span class="bg-emerald-500 text-white text-[10px] font-bold font-fredoka px-3 py-1 rounded-full uppercase tracking-wider shadow inline-block mb-3">
+                    <i class="fa-solid fa-circle-check"></i> PAGO VERIFICADO - ENTADA VÁLIDA
+                </span>
+
+                <h4 class="text-xs font-bold text-yuca-coral tracking-widest uppercase">PROYECTO YUCA / YUKAWAII FEST</h4>
+                <h3 class="text-xl font-fredoka font-bold text-gray-900 dark:text-white mt-0.5">Entrada Meet & Greet</h3>
+
+                <!-- User QR Code for Entrance -->
+                <div class="my-4 p-3 bg-white rounded-xl shadow-sm inline-block border border-gray-200">
+                    <img id="ticket-qr-code" src="" alt="QR Entrada" class="w-44 h-44 mx-auto">
+                    <span id="ticket-code-display" class="font-mono text-xs font-bold text-gray-700 mt-1 block">YUK-XXXXXX</span>
+                </div>
+
+                <div class="text-left space-y-1.5 text-xs text-gray-700 dark:text-gray-300 bg-white/60 dark:bg-gray-800/60 p-3 rounded-xl">
+                    <p><strong>Asistente:</strong> <span id="ticket-user-name">Camila Morales</span></p>
+                    <p><strong>Pase:</strong> <span id="ticket-pass-type" class="text-yuca-coral font-bold">Pase VIP Especial</span></p>
+                    <p><strong>Estado Pago:</strong> <span id="ticket-pay-status">Reserva Confirmada</span></p>
+                </div>
+
+                <p class="text-[10px] text-gray-400 mt-3">Presenta este código QR en la entrada del salón el día del evento.</p>
+            </div>
+
+            <button onclick="window.print()" class="mt-4 w-full py-3 rounded-xl bg-yuca-pink hover:bg-yuca-coral text-white font-fredoka font-bold text-sm shadow transition-colors flex items-center justify-center gap-2">
+                <i class="fa-solid fa-print"></i> Imprimir / Guardar Ticket PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal: Admin Panel -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-yuca-darkCard rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl border border-gray-200 dark:border-gray-800 relative max-h-[90vh] flex flex-col">
+            
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-yuca-coral text-white flex items-center justify-center text-lg font-bold">
+                    <i class="fa-solid fa-user-gear"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-fredoka font-bold text-gray-900 dark:text-white">Panel Administrador</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Verificación manual de comprobantes de pago</p>
+                </div>
+            </div>
+
+            <!-- Stats & Controls -->
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">
+                <div class="text-xs text-gray-600 dark:text-gray-400">
+                    Total Registrados: <strong id="admin-total-count" class="text-yuca-coral font-bold">0</strong>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="exportToCSV()" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold font-fredoka flex items-center gap-1.5 transition-colors">
+                        <i class="fa-solid fa-file-excel"></i> Exportar CSV
+                    </button>
+                    <button onclick="clearAllData()" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold font-fredoka flex items-center gap-1.5 transition-colors">
+                        <i class="fa-solid fa-trash-can"></i> Borrar Todo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="overflow-x-auto flex-grow rounded-xl border border-gray-200 dark:border-gray-800">
+                <table class="w-full text-left text-xs text-gray-600 dark:text-gray-300">
+                    <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 font-bold uppercase tracking-wider font-fredoka">
+                        <tr>
+                            <th class="p-3">Código</th>
+                            <th class="p-3">Nombre</th>
+                            <th class="p-3">WhatsApp</th>
+                            <th class="p-3">Pase</th>
+                            <th class="p-3">Monto Pago</th>
+                            <th class="p-3">Estado</th>
+                            <th class="p-3">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table-body" class="divide-y divide-gray-200 dark:divide-gray-800">
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="border-t border-yuca-pink/20 dark:border-yuca-darkBorder bg-white dark:bg-yuca-darkHeader py-8 mt-12 transition-colors duration-300">
+    <footer class="bg-white dark:bg-yuca-darkHeader border-t border-yuca-pinkLight/40 dark:border-gray-800 py-8 transition-colors">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="text-xs text-gray-500 dark:text-gray-400">
-                © 2026 <strong class="text-yuca-pink">Proyecto Yuca</strong> & <strong class="text-yuca-blueDark dark:text-yuca-blue">Yukawaii Fest</strong>. Todos los derechos reservados.
+                &copy; 2026 Proyecto Yuca / Yukawaii Fest - Todos los derechos reservados.
             </p>
+            <div class="mt-3">
+                <button onclick="openAdminPrompt()" class="text-[11px] text-gray-400 hover:text-yuca-coral underline transition-colors">
+                    <i class="fa-solid fa-lock text-[10px]"></i> Acceso Administrador
+                </button>
+            </div>
         </div>
     </footer>
 
+    <!-- Logic Script -->
     <script>
-        let availableSlots = 14;
+        let selectedPass = 'normal';
+        let currentBookingData = null;
 
-        // Theme Switch Logic
+        const PASS_CONFIG = {
+            normal: {
+                title: 'Pase Normal (50 Bs.)',
+                fullPrice: 50,
+                depositPrice: 10,
+                iconClass: 'fa-ticket'
+            },
+            vip: {
+                title: 'Pase VIP Especial (80 Bs.)',
+                fullPrice: 80,
+                depositPrice: 15,
+                iconClass: 'fa-crown'
+            }
+        };
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('yuca_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-sun text-lg';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('theme-icon').className = 'fa-solid fa-moon text-lg';
+            }
+            updateSlotsCount();
+        }
+
         function toggleTheme() {
-            const htmlEl = document.documentElement;
+            const isDark = document.documentElement.classList.toggle('dark');
             const themeIcon = document.getElementById('theme-icon');
             
-            if (htmlEl.classList.contains('dark')) {
-                htmlEl.classList.remove('dark');
-                themeIcon.className = 'fa-solid fa-moon text-lg';
-            } else {
-                htmlEl.classList.add('dark');
+            if (isDark) {
                 themeIcon.className = 'fa-solid fa-sun text-lg';
-            }
-        }
-
-        // Update Pass Selection
-        function updatePassSelection() {
-            const selectedPass = document.querySelector('input[name="pass_type"]:checked').value;
-            const audioContainer = document.getElementById('audio-request-container');
-            const summaryName = document.getElementById('summary-pass-name');
-            const summaryBadge = document.getElementById('summary-badge');
-            const summaryPrice = document.getElementById('summary-total-price');
-
-            if (selectedPass === 'vip') {
-                audioContainer.classList.remove('hidden');
-                summaryName.textContent = 'Pase VIP Especial';
-                summaryBadge.textContent = '80 Bs.';
-                summaryBadge.className = 'text-xs bg-yuca-pink/20 text-yuca-pinkDark dark:text-yuca-pink px-2.5 py-0.5 rounded-md font-sans font-bold';
-                summaryPrice.innerHTML = '80.00 <span class="text-sm font-sans font-semibold">Bs.</span>';
+                localStorage.setItem('yuca_theme', 'dark');
             } else {
-                audioContainer.classList.add('hidden');
-                summaryName.textContent = 'Pase Normal';
-                summaryBadge.textContent = '50 Bs.';
-                summaryBadge.className = 'text-xs bg-yuca-blue/20 text-yuca-blueDark dark:text-yuca-blue px-2.5 py-0.5 rounded-md font-sans font-bold';
-                summaryPrice.innerHTML = '50.00 <span class="text-sm font-sans font-semibold">Bs.</span>';
+                themeIcon.className = 'fa-solid fa-moon text-lg';
+                localStorage.setItem('yuca_theme', 'light');
             }
         }
 
-        // Handle Registration
-        function handleRegistration(event) {
+        function selectPass(type) {
+            selectedPass = type;
+            const cardNormal = document.getElementById('card-normal');
+            const cardVip = document.getElementById('card-vip');
+            const badgeNormal = document.getElementById('badge-normal');
+            const badgeVip = document.getElementById('badge-vip');
+
+            if (type === 'normal') {
+                cardNormal.classList.add('border-yuca-pink', 'ring-2', 'ring-yuca-pink/30');
+                cardVip.classList.remove('border-yuca-blue', 'ring-2', 'ring-yuca-blue/30');
+                badgeNormal.classList.remove('hidden');
+                badgeVip.classList.add('hidden');
+            } else {
+                cardVip.classList.add('border-yuca-blue', 'ring-2', 'ring-yuca-blue/30');
+                cardNormal.classList.remove('border-yuca-pink', 'ring-2', 'ring-yuca-pink/30');
+                badgeVip.classList.remove('hidden');
+                badgeNormal.classList.add('hidden');
+            }
+
+            const passInfo = PASS_CONFIG[type];
+            document.getElementById('form-pass-title').textContent = passInfo.title;
+            document.getElementById('deposit-label').textContent = `Reserva Adelantada (${passInfo.depositPrice} Bs.)`;
+            document.getElementById('full-label').textContent = `Pago Total Completo (${passInfo.fullPrice} Bs.)`;
+            document.getElementById('clause-amount').textContent = `${passInfo.depositPrice} Bs.`;
+        }
+
+        function handleFormSubmit(event) {
             event.preventDefault();
 
-            const passType = document.querySelector('input[name="pass_type"]:checked').value;
-            const fullName = document.getElementById('full-name').value.trim();
-            const nickname = document.getElementById('nickname').value.trim();
-            const email = document.getElementById('email').value.trim();
+            const fullname = document.getElementById('fullname').value.trim();
             const phone = document.getElementById('phone').value.trim();
-            const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+            const email = document.getElementById('email').value.trim();
+            const paymentType = document.querySelector('input[name="payment_type"]:checked').value;
+            const passInfo = PASS_CONFIG[selectedPass];
 
-            if (!fullName || !email || !phone) {
+            const payAmount = paymentType === 'deposit' ? passInfo.depositPrice : passInfo.fullPrice;
+            const code = 'YUK-' + Math.floor(100000 + Math.random() * 900000);
+
+            currentBookingData = {
+                id: code,
+                fullname,
+                phone,
+                email,
+                passType: selectedPass,
+                passTitle: passInfo.title,
+                paymentType: paymentType === 'deposit' ? 'Reserva Adelantada' : 'Pago Completo',
+                amountToPay: payAmount,
+                fullPrice: passInfo.fullPrice,
+                status: 'pending', // 'pending' or 'approved'
+                date: new Date().toLocaleDateString('es-BO') + ' ' + new Date().toLocaleTimeString('es-BO', {hour: '2-digit', minute:'2-digit'})
+            };
+
+            saveBookingToLocalStorage(currentBookingData);
+
+            document.getElementById('modal-pay-amount').textContent = payAmount;
+            document.getElementById('modal-pass-detail').textContent = `${currentBookingData.paymentType} - ${passInfo.title}`;
+
+            document.getElementById('payment-modal').classList.remove('hidden');
+        }
+
+        function saveBookingToLocalStorage(booking) {
+            let bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+            bookings.push(booking);
+            localStorage.setItem('yuca_bookings', JSON.stringify(bookings));
+            updateSlotsCount();
+        }
+
+        function updateSlotsCount() {
+            let bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+            let count = 14 + bookings.length;
+            if(count > 50) count = 50;
+            document.getElementById('slots-count').textContent = count;
+        }
+
+        function closeModal() {
+            document.getElementById('payment-modal').classList.add('hidden');
+        }
+
+        function confirmAndRedirectWhatsApp() {
+            if (!currentBookingData) return;
+
+            const targetPhone = "59162794421";
+            const message = `¡Hola Proyecto Yuca / Yukawaii Fest! 🌸\n` +
+                `He realizado mi prerregistro para el *Meet & Greet*.\n\n` +
+                `📌 *Código de Reserva:* ${currentBookingData.id}\n` +
+                `👤 *Nombre:* ${currentBookingData.fullname}\n` +
+                `📱 *Teléfono:* ${currentBookingData.phone}\n` +
+                `🎟️ *Pase:* ${currentBookingData.passTitle}\n` +
+                `💵 *Modalidad:* ${currentBookingData.paymentType} (${currentBookingData.amountToPay} Bs.)\n\n` +
+                `Adjunto en este chat mi comprobante de pago QR para la verificación manual. ¡Muchas gracias!`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${targetPhone}?text=${encodedMessage}`;
+
+            closeModal();
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // USER TICKET SEARCH LOGIC
+        function openCheckTicketModal() {
+            document.getElementById('check-ticket-modal').classList.remove('hidden');
+            document.getElementById('ticket-search-result').classList.add('hidden');
+            document.getElementById('search-ticket-input').value = '';
+        }
+
+        function closeCheckTicketModal() {
+            document.getElementById('check-ticket-modal').classList.add('hidden');
+        }
+
+        function searchUserTicket() {
+            const query = document.getElementById('search-ticket-input').value.trim().toLowerCase();
+            const resultBox = document.getElementById('ticket-search-result');
+            resultBox.classList.remove('hidden');
+
+            if (!query) {
+                resultBox.innerHTML = `<p class="text-xs text-red-500 text-center font-bold">Ingresa un código o número telefónico válido.</p>`;
                 return;
             }
 
-            const randomCode = 'YUKA-' + Math.floor(1000 + Math.random() * 9000) + '-MG';
+            const bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+            const found = bookings.find(b => b.id.toLowerCase() === query || b.phone.toLowerCase() === query);
 
-            document.getElementById('ticket-name').textContent = fullName;
-            
-            const nicknameRow = document.getElementById('ticket-nickname-row');
-            if (nickname) {
-                document.getElementById('ticket-nickname').textContent = nickname;
-                nicknameRow.style.display = 'flex';
+            if (!found) {
+                resultBox.innerHTML = `<div class="p-3 bg-red-50 text-red-600 rounded-xl text-xs text-center">No se encontró ninguna reserva activa con ese dato.</div>`;
+                return;
+            }
+
+            if (found.status === 'pending') {
+                resultBox.innerHTML = `
+                    <div class="p-4 bg-amber-50 text-amber-800 rounded-xl text-xs space-y-2 border border-amber-200">
+                        <div class="font-bold flex items-center gap-1.5 text-sm">
+                            <i class="fa-solid fa-clock"></i> Pago en Revisión
+                        </div>
+                        <p>Tu solicitud <strong>${found.id}</strong> fue registrada correctamente. Una vez que el administrador confirme el recibo de tu transferencia en WhatsApp (+591 62794421), se activará tu ticket con QR de entrada.</p>
+                    </div>
+                `;
             } else {
-                nicknameRow.style.display = 'none';
+                closeCheckTicketModal();
+                showOfficialTicket(found);
             }
-
-            document.getElementById('ticket-phone').textContent = phone;
-            document.getElementById('ticket-payment').textContent = paymentMethod;
-            document.getElementById('ticket-code').textContent = randomCode;
-
-            const badge = document.getElementById('ticket-pass-badge');
-            const priceText = document.getElementById('ticket-price');
-
-            if (passType === 'vip') {
-                badge.textContent = 'PASE VIP';
-                badge.className = 'bg-yuca-pink text-white text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase';
-                priceText.textContent = '80.00 Bs.';
-            } else {
-                badge.textContent = 'PASE NORMAL';
-                badge.className = 'bg-yuca-blue text-white text-xs font-bold font-fredoka px-3 py-1 rounded-full uppercase';
-                priceText.textContent = '50.00 Bs.';
-            }
-
-            if (availableSlots > 1) {
-                availableSlots--;
-                document.getElementById('slots-count').textContent = availableSlots;
-            }
-
-            const modal = document.getElementById('ticket-modal');
-            const modalContent = document.getElementById('ticket-modal-content');
-            
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-95');
-            modalContent.classList.add('scale-100');
         }
 
-        // Close Modal
-        function closeModal() {
-            const modal = document.getElementById('ticket-modal');
-            const modalContent = document.getElementById('ticket-modal-content');
+        function showOfficialTicket(item) {
+            document.getElementById('ticket-user-name').textContent = item.fullname;
+            document.getElementById('ticket-pass-type').textContent = item.passTitle;
+            document.getElementById('ticket-pay-status').textContent = `${item.paymentType} (${item.amountToPay} Bs.)`;
+            document.getElementById('ticket-code-display').textContent = item.id;
             
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
+            // Generate Entry QR Code
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=ENTRY_CONFIRMED_${item.id}_${item.fullname}`;
+            document.getElementById('ticket-qr-code').src = qrUrl;
+
+            document.getElementById('ticket-view-modal').classList.remove('hidden');
         }
 
-        // Copy Ticket Info
-        function copyTicketInfo() {
-            const code = document.getElementById('ticket-code').textContent;
-            const name = document.getElementById('ticket-name').textContent;
-            const price = document.getElementById('ticket-price').textContent;
-            
-            const textToCopy = `Reserva Meet & Greet Yukawaii Fest\nTitular: ${name}\nCódigo: ${code}\nMonto: ${price}`;
-
-            const tempInput = document.createElement('textarea');
-            tempInput.value = textToCopy;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-
-            const btn = event.currentTarget;
-            const originalText = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-500"></i><span>¡Copiado!</span>`;
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-            }, 2000);
+        function closeTicketViewModal() {
+            document.getElementById('ticket-view-modal').classList.add('hidden');
         }
 
-        window.onload = function() {
-            updatePassSelection();
-        };
+        // ADMIN PANEL LOGIC
+        function openAdminPrompt() {
+            const password = prompt("Ingresa la contraseña de administrador:");
+            if (password === "admin123") {
+                renderAdminTable();
+                document.getElementById('admin-modal').classList.remove('hidden');
+            } else if (password !== null) {
+                alert("Contraseña incorrecta.");
+            }
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function renderAdminTable() {
+            const bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+            const tbody = document.getElementById('admin-table-body');
+            document.getElementById('admin-total-count').textContent = bookings.length;
+
+            if (bookings.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-gray-400">No hay reservas registradas en el almacenamiento local.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = bookings.map((item, index) => `
+                <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50">
+                    <td class="p-3 font-mono font-bold text-yuca-coral">${item.id}</td>
+                    <td class="p-3 font-medium text-gray-900 dark:text-white">${escapeHtml(item.fullname)}</td>
+                    <td class="p-3">${escapeHtml(item.phone)}</td>
+                    <td class="p-3">${item.passType === 'vip' ? '<span class="text-yuca-blue font-bold">VIP (80 Bs)</span>' : '<span class="text-yuca-pink font-bold">Normal (50 Bs)</span>'}</td>
+                    <td class="p-3 font-bold">${item.amountToPay} Bs.</td>
+                    <td class="p-3">
+                        ${item.status === 'approved' 
+                            ? '<span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Aprobado</span>' 
+                            : '<span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full text-[10px] font-bold">Pendiente</span>'}
+                    </td>
+                    <td class="p-3 flex items-center gap-2">
+                        ${item.status === 'pending' ? `
+                            <button onclick="approveBooking(${index})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2 py-1 rounded text-[10px] font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-check"></i> Dar de Alta
+                            </button>
+                        ` : ''}
+                        <button onclick="deleteBooking(${index})" class="text-red-500 hover:text-red-700 p-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function approveBooking(index) {
+            let bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+            bookings[index].status = 'approved';
+            localStorage.setItem('yuca_bookings', JSON.stringify(bookings));
+            renderAdminTable();
+            alert(`Reserva ${bookings[index].id} de ${bookings[index].fullname} ha sido aprobada y dada de alta.`);
+        }
+
+        function deleteBooking(index) {
+            if (confirm("¿Estás seguro de eliminar este registro?")) {
+                let bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+                bookings.splice(index, 1);
+                localStorage.setItem('yuca_bookings', JSON.stringify(bookings));
+                renderAdminTable();
+                updateSlotsCount();
+            }
+        }
+
+        function clearAllData() {
+            if (confirm("¿⚠️ Estás seguro de borrar TODOS los registros locales? Esta acción no se puede deshacer.")) {
+                localStorage.removeItem('yuca_bookings');
+                renderAdminTable();
+                updateSlotsCount();
+            }
+        }
+
+        function exportToCSV() {
+            const bookings = JSON.parse(localStorage.getItem('yuca_bookings') || '[]');
+            if (bookings.length === 0) {
+                alert("No hay datos para exportar.");
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,Código,Nombre,Telefono,Email,Pase,Modalidad,Monto,Estado,Fecha\n";
+            bookings.forEach(b => {
+                csvContent += `"${b.id}","${b.fullname}","${b.phone}","${b.email}","${b.passTitle}","${b.paymentType}","${b.amountToPay} Bs","${b.status}","${b.date}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `prerregistros_meet_greet_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/[&<>"']/g, function(m) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'})[m]; });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            selectPass('normal');
+        });
     </script>
 </body>
 </html>
